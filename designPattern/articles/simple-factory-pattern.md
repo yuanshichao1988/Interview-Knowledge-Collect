@@ -10,6 +10,7 @@
 
 那么简单工厂模式是在什么场景下使用呢，下面举例说明:
 就拿登录功能来说，假如应用系统需要支持多种登录方式如：口令认证、域认证（口令认证通常是去数据库中验证用户，而域认证则是需要到微软的域中验证用户）。那么自然的做法就是建立一个各种登录方式都适用的接口，如下图所示：
+
 ![image](https://github.com/yuanshichao1988/Interview-Knowledge-Collect/blob/master/designPattern/articles/imgs/simple-factory-01.png)
 
 #### 代码实例

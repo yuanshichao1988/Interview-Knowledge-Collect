@@ -5,7 +5,7 @@
 ***
 
 - [简单工厂模式](https://github.com/yuanshichao1988/Interview-Knowledge-Collect/blob/master/designPattern/articles/simple-factory-pattern.md)
-- [工厂模式](https://github.com/yuanshichao1988/Interview-Knowledge-Collect/blob/master/designPattern/articles/simple-factory-pattern.md)
+- [工厂模式](https://github.com/yuanshichao1988/Interview-Knowledge-Collect/blob/master/designPattern/articles/factory-pattern.md)
 - [抽象工厂模式](https://github.com/yuanshichao1988/Interview-Knowledge-Collect/blob/master/designPattern/articles/simple-factory-pattern.md)
 - [单例模式](https://github.com/yuanshichao1988/Interview-Knowledge-Collect/blob/master/designPattern/articles/simple-factory-pattern.md)
 - [制造者模式](https://github.com/yuanshichao1988/Interview-Knowledge-Collect/blob/master/designPattern/articles/simple-factory-pattern.md)
