@@ -22,7 +22,7 @@
 
 　　对装机工程师而言，只是知道CPU和主板的接口，而不知道具体实现，很明显可以用上简单工厂模式或工厂方法模式。为了简单，这里选用简单工厂。客户告诉装机工程师自己的选择，然后装机工程师会通过相应的工厂去获取相应的实例对象。
 
-![](https://github.com/yuanshichao1988/Interview-Knowledge-Collect/blob/master/designPattern/articles/imgs/abstract-simple-factory-01.png)
+![](https://github.com/yuanshichao1988/Interview-Knowledge-Collect/blob/master/designPattern/articles/imgs/abstract-factory-pattern-01.png)
 
 ### 源代码
 
@@ -193,11 +193,11 @@ public class Client {
 
 运行结果如下： 
 
-![](https://github.com/yuanshichao1988/Interview-Knowledge-Collect/blob/master/designPattern/articles/imgs/abstract-simple-factory-02.png)
+![](https://github.com/yuanshichao1988/Interview-Knowledge-Collect/blob/master/designPattern/articles/imgs/abstract-factory-pattern-02.png)
 
 上面的实现，虽然通过简单工厂方法解决了：对于装机工程师，只知CPU和主板的接口，而不知道具体实现的问题。**但还有一个问题没有解决，那就是这些CPU对象和主板对象其实是有关系的，需要相互匹配的。**而上面的实现中，并没有维护这种关联关系，CPU和主板是由客户任意选择，这是有问题的。比如在客户端调用makeComputer时，传入参数为(1,2)，运行结果如下： 
 
-![](https://github.com/yuanshichao1988/Interview-Knowledge-Collect/blob/master/designPattern/articles/imgs/abstract-simple-factory-03.png)
+![](https://github.com/yuanshichao1988/Interview-Knowledge-Collect/blob/master/designPattern/articles/imgs/abstract-factory-pattern-03.png)
 
 观察上面结果就会看出问题。客户选择的是Intel的CPU针脚数为755，而选择的主板是AMD，主板上的CPU插孔是938，根本无法组装，这就是没有维护配件之间的关系造成的。该怎么解决这个问题呢？　 
 
@@ -209,17 +209,17 @@ public class Client {
 
 　　所谓产品族，是指位于不同产品等级结构中，功能相关联的产品组成的家族。比如AMD的主板、芯片组、CPU组成一个家族，Intel的主板、芯片组、CPU组成一个家族。而这两个家族都来自于三个产品等级：主板、芯片组、CPU。一个等级结构是由相同的结构的产品组成，示意图如下：
 
-![](https://github.com/yuanshichao1988/Interview-Knowledge-Collect/blob/master/designPattern/articles/imgs/abstract-simple-factory-04.png)
+![](https://github.com/yuanshichao1988/Interview-Knowledge-Collect/blob/master/designPattern/articles/imgs/abstract-factory-pattern-04.png)
 
 ​	显然，每一个产品族中含有产品的数目，与产品等级结构的数目是相等的。产品的等级结构与产品族将产品按照不同方向划分，形成一个二维的坐标系。横轴表示产品的等级结构，纵轴表示产品族，上图共有两个产品族，分布于三个不同的产品等级结构中。只要指明一个产品所处的产品族以及它所属的等级结构，就可以唯一的确定这个产品。
 
 　　上面所给出的三个不同的等级结构具有平行的结构。因此，如果采用工厂方法模式，就势必要使用三个独立的工厂等级结构来对付这三个产品等级结构。由于这三个产品等级结构的相似性，会导致三个平行的工厂等级结构。随着产品等级结构的数目的增加，工厂方法模式所给出的工厂等级结构的数目也会随之增加。如下图：
 
-![](https://github.com/yuanshichao1988/Interview-Knowledge-Collect/blob/master/designPattern/articles/imgs/abstract-simple-factory-05.png)
+![](https://github.com/yuanshichao1988/Interview-Knowledge-Collect/blob/master/designPattern/articles/imgs/abstract-factory-pattern-05.png)
 
 那么，是否可以使用同一个工厂等级结构来对付这些相同或者极为相似的产品等级结构呢？当然可以的，而且这就是抽象工厂模式的好处。同一个工厂等级结构负责三个不同产品等级结构中的产品对象的创建。 
 
-![](https://github.com/yuanshichao1988/Interview-Knowledge-Collect/blob/master/designPattern/articles/imgs/abstract-simple-factory-06.png)
+![](https://github.com/yuanshichao1988/Interview-Knowledge-Collect/blob/master/designPattern/articles/imgs/abstract-factory-pattern-06.png)
 
 可以看出，一个工厂等级结构可以创建出分属于不同产品等级结构的一个产品族中的所有对象。显然，这时候抽象工厂模式比简单工厂模式、工厂方法模式更有效率。对应于每一个产品族都有一个具体工厂。而每一个具体工厂负责创建属于同一个产品族，但是分属于不同等级结构的产品。
 
@@ -231,17 +231,17 @@ public class Client {
 
 　　通过使用抽象工厂模式，可以处理具有相同（或者相似）等级结构中的多个产品族中的产品对象的创建问题。如下图所示：
 
-![](https://github.com/yuanshichao1988/Interview-Knowledge-Collect/blob/master/designPattern/articles/imgs/abstract-simple-factory-07.png)
+![](https://github.com/yuanshichao1988/Interview-Knowledge-Collect/blob/master/designPattern/articles/imgs/abstract-factory-pattern-07.png)
 
 由于这两个产品族的等级结构相同，因此使用同一个工厂族也可以处理这两个产品族的创建问题，这就是抽象工厂模式。
 
 根据产品角色的结构图，就不难给出工厂角色的结构设计图。
 
-![](https://github.com/yuanshichao1988/Interview-Knowledge-Collect/blob/master/designPattern/articles/imgs/abstract-simple-factory-08.png)
+![](https://github.com/yuanshichao1988/Interview-Knowledge-Collect/blob/master/designPattern/articles/imgs/abstract-factory-pattern-08.png)
 
 可以看出，每一个工厂角色都有两个工厂方法，分别负责创建分属不同产品等级结构的产品对象。 
 
-![](https://github.com/yuanshichao1988/Interview-Knowledge-Collect/blob/master/designPattern/articles/imgs/abstract-simple-factory-09.png)
+![](https://github.com/yuanshichao1988/Interview-Knowledge-Collect/blob/master/designPattern/articles/imgs/abstract-factory-pattern-09.png)
 
 ### 源代码
 
@@ -352,13 +352,13 @@ public class Client {
 
 抽象工厂的功能是为一系列相关对象或相互依赖的对象创建一个接口。一定要注意，这个接口内的方法不是任意堆砌的，而是一系列相关或相互依赖的方法。比如上面例子中的主板和CPU，都是为了组装一台电脑的相关对象。不同的装机方案，代表一种具体的电脑系列。 
 
-![](https://github.com/yuanshichao1988/Interview-Knowledge-Collect/blob/master/designPattern/articles/imgs/abstract-simple-factory-10.png)
+![](https://github.com/yuanshichao1988/Interview-Knowledge-Collect/blob/master/designPattern/articles/imgs/abstract-factory-pattern-10.png)
 
 ​	由于抽象工厂定义的一系列对象通常是相关或相互依赖的，这些产品对象就构成了一个产品族，也就是抽象工厂定义了一个产品族。
 
 　　这就带来非常大的灵活性，切换产品族的时候，只要提供不同的抽象工厂实现就可以了，也就是说现在是以一个产品族作为一个整体被切换。
 
-![](https://github.com/yuanshichao1988/Interview-Knowledge-Collect/blob/master/designPattern/articles/imgs/abstract-simple-factory-11.png)
+![](https://github.com/yuanshichao1988/Interview-Knowledge-Collect/blob/master/designPattern/articles/imgs/abstract-factory-pattern-11.png)
 
 ### 在什么情况下应当使用抽象工厂模式
 
@@ -376,15 +376,15 @@ public class Client {
 
 　　在每一个操作系统中，都有一个视窗构建组成的构建家族。在这里就是Button和Text组成的产品族。而每一个视窗构件都构成自己的等级结构，由一个抽象角色给出抽象的功能描述，而由具体子类给出不同操作系统下的具体实现。
 
-![](https://github.com/yuanshichao1988/Interview-Knowledge-Collect/blob/master/designPattern/articles/imgs/abstract-simple-factory-12.png)
+![](https://github.com/yuanshichao1988/Interview-Knowledge-Collect/blob/master/designPattern/articles/imgs/abstract-factory-pattern-12.png)
 
 可以发现在上面的产品类图中，有两个产品的等级结构，分别是Button等级结构和Text等级结构。同时有两个产品族，也就是UNIX产品族和Windows产品族。UNIX产品族由UNIX Button和UNIX Text产品构成；而Windows产品族由Windows Button和Windows Text产品构成。 
 
-![](https://github.com/yuanshichao1988/Interview-Knowledge-Collect/blob/master/designPattern/articles/imgs/abstract-simple-factory-13.png)
+![](https://github.com/yuanshichao1988/Interview-Knowledge-Collect/blob/master/designPattern/articles/imgs/abstract-factory-pattern-13.png)
 
 系统对产品对象的创建需求由一个工程的等级结构满足，其中有两个具体工程角色，即UnixFactory和WindowsFactory。UnixFactory对象负责创建Unix产品族中的产品，而WindowsFactory对象负责创建Windows产品族中的产品。这就是抽象工厂模式的应用，抽象工厂模式的解决方案如下图： 
 
-![](https://github.com/yuanshichao1988/Interview-Knowledge-Collect/blob/master/designPattern/articles/imgs/abstract-simple-factory-14.png)
+![](https://github.com/yuanshichao1988/Interview-Knowledge-Collect/blob/master/designPattern/articles/imgs/abstract-factory-pattern-14.png)
 
 显然，一个系统只能够在某一个操作系统的视窗环境下运行，而不能同时在不同的操作系统上运行。所以，系统实际上只能消费属于同一个产品族的产品。
 

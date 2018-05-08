@@ -8,4 +8,5 @@
 
 ### 四、New Date API
 
-### 五、XX
+### 五、Collector
+https://www.jianshu.com/p/c0d5c3094324
