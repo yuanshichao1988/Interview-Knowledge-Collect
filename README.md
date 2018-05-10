@@ -1,16 +1,8 @@
 # Interview-Knowledge-Collect
 > 面试题整理 | 面试知识收集
 ***
-### 一、Java
 
-### 二、MySQL
-
-### 三、分布式
-
-### 四、微服务
-
-***
-## 基础篇
+## 一、基础篇
 > ### JVM
 #### JVM内存结构
 堆、栈、方法区、直接内存、堆和栈区别
@@ -38,10 +30,16 @@ jps, jstack, jmap、jstat, jconsole, jinfo, jhat, javap, btrace、TProfiler
 javac 、javap 、jad 、CRF
 
 > ### Java基础知识
+#### Java中各种基础类型
+- String、Integer、Long、Enum、BigDecimal
+#### Java中各种集合类型
+- ArrayList & LinkedList、 HashMap & LinkedHashMap & TreeMap & ConcurrentHashMap、HashSet & LinkedHashSet & TreeSet
 #### 阅读源代码
-String、Integer、Long、Enum、BigDecimal、ThreadLocal、ClassLoader & URLClassLoader、ArrayList & LinkedList、 HashMap & LinkedHashMap & TreeMap & CouncurrentHashMap、HashSet & LinkedHashSet & TreeSet
 
-#### Java中各种变量类型
+- ThreadLocal、ClassLoader & URLClassLoader
+- ArrayList & LinkedList、 HashMap & LinkedHashMap & TreeMap & ConcurrentHashMap、HashSet & LinkedHashSet & TreeSet
+
+
 #### 熟悉Java String的使用，熟悉String的各种函数
 JDK 6和JDK 7中substring的原理及区别、
 
