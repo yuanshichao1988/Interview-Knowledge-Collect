@@ -618,7 +618,14 @@ Java面试题整理
 
 62、MyBatis原理
 
+- mybatis-config.xml
+
 63、MQ的原理
+
+- 核心组件
+- 通信原理
+- 高可用
+- 异常处理 [消息堆积、消息消费异常]
 
 64、Tomcat Server处理一个http请求的过程
 
