@@ -633,11 +633,10 @@ Java面试题整理
 > 7) path=”/wsota”的Context获得请求/wsota_index.jsp，在它的mapping table中寻找对应的servlet
 > 8) Context匹配到URL PATTERN为*.jsp的servlet，对应于JspServlet类
 > 9) 构造HttpServletRequest对象和HttpServletResponse对象，作为参数调用JspServlet的doGet或doPost方法
-
-> 10)Context把执行完了之后的HttpServletResponse对象返回给Host
-> 11)Host把HttpServletResponse对象返回给Engine
-> 12)Engine把HttpServletResponse对象返回给Connector
-> 13)Connector把HttpServletResponse对象返回给客户browser
+> 10) Context把执行完了之后的HttpServletResponse对象返回给Host
+> 11) Host把HttpServletResponse对象返回给Engine
+> 12) Engine把HttpServletResponse对象返回给Connector
+> 13) Connector把HttpServletResponse对象返回给客户browser
 
 65、https://www.cnblogs.com/xiaozhang2014/p/7821104.html
 
